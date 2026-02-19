@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            margin-bottom: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+        }
+
+        .back-button::before {
+            content: 'HOME';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #333;
+        }
+
+        .back-button svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .content {
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+
+        .description {
+            max-width: 600px;
+            margin-bottom: 60px;
+        }
+
+        .description p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .description p:first-child {
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #ddd;
+            aspect-ratio: 16/10;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Placeholder styling */
+        .gallery-item::before {
+            content: 'Upload Image';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #999;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .back-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .description p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="back-button" onclick="goBack()">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        <div class="content">
+            <h1>WORK</h1>
+
+            <div class="description">
+                <p>On this page, you will find two sections divided into Work and Gallery.</p>
+                <p>1. Work: It is about creating a new level of design by using Figma as a designer.</p>
+                <p>2. Gallery: It is about the digital art and animation that I drew and made by using Procreate.</p>
+            </div>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/MacBook Pro 14_ - 2.png" alt="AirPods Pro">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/AJ 411111.png" alt="Air Jordan">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Frame 1.png" alt="Manga Website">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/ClockApp Frame.png" alt="Clock App">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+            // Or use: window.location.href = 'index.html';
+        }
+
+        // Optional: Add click handlers for gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function () {
+                // Handle click - could open lightbox, navigate, etc.
+                console.log('Gallery item clicked');
+            });
+        });
+    </script>
+</body>
+
+</html>
